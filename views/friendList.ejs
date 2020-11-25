@@ -1,0 +1,34 @@
+<!-- itemList = [ {friendId, registrationDate} ] -->
+<%
+    for(let i=0; i<itemList.length; i++){ %>
+        <div class="freind__listItem listItem">
+            <div class="friendListItem__informationContainer listItem__informationContainer">
+                <div class="friendListItem__">
+                    <div class="friendListItem__idLabel listItem__informationLabel">
+                        ID : 
+                    </div>
+                    <div class="friendListItem__id listItem__informationData">
+                        <%= itemList[i].friendId %>
+                    </div>
+                </div>
+                <div class="friendListItem__ ">
+                    <div class="listItem__informationLabel">
+                        가입날짜 : 
+                    </div>
+                    <div class="friendListItem__registrationDate listItem__informationData">
+                        <%= itemList[i].registrationDate %>
+                    </div>
+                </div>
+            </div>
+            <div class="friendListItem__buttons listItem__buttons">
+                <div class="friendListItem__friendRequest listItem__button"  data-action="friendDelete" data-id=<%=itemList[i].friendId %>>
+                    친구 삭제
+                </div>
+                <!-- data-method socket -->
+                <div class="friendListItem__friendRequest listItem__button"  data-action="directMessage" data-id=<%=itemList[i].friendId %>>
+                    DM
+                </div>
+            </div>
+        </div>  
+    <%}
+%>

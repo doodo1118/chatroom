@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/main.css">
+        <!-- for socket connection -->
+        <script src="/socket.io/socket.io.js"></script>
+        <!-- <script src="/javascript/socket.js"></script> -->
+        <script src="/javascript/chatRoom.js"></script>
+        <script src="/javascript/directMessage.js"></script>
+
+        <script src="/javascript/main.js"></script>
+    </head>
+    <body>
+        <div class="main">
+            <header class="main__header">
+                <div class="main__lnb">
+                    <div class="lnb__menu lnb__room" data-action="room">
+                        <div data-action="room">
+                            Rooms
+                        </div>
+                    </div>
+                    <div class="lnb__menu lnb__user" data-action="user">
+                        <div data-action="user">
+                            Users
+                        </div>
+                    </div>
+                    <div class="lnb__menu lnb__friend" data-action="friend">
+                        <div data-action="friend">
+                            Friends
+                        </div>
+                    </div>
+                    <div class="lnb__menu lnb__logout" data-action="logout">
+                        <div data-action="logout">
+                            Logout
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <content>
+                <div class="content__lnb"></div>
+                <div class="content__main">
+
+                </div>
+            </content>
+        </div>
+    </body>
+</html>

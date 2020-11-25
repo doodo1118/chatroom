@@ -1,0 +1,32 @@
+<!-- itemList = [ {friendId, registrationDate} ] -->
+<%
+    for(let i=0; i<itemList.length; i++){ %>
+        <div class="friendRequestListItem listItem">
+            <div class="friendRequestListItem__informationContainer listItem__informationContainer">
+                <div class="friendRequestListItem__reciever">
+                    <div class="friendRequestListItem__recieverLabel listItem__informationLabel">
+                        ID : 
+                    </div>
+                    <div class="friendRequestListItem__reciever listItem__informationData">
+                        <%= itemList[i].friendId %>
+                    </div>
+                </div>
+                <div class="friendRequestListItem__registrationDate">
+                    <div class="friendRequestListItem__registrationDateLabel listItem__informationLabel">
+                        가입날짜 : 
+                    </div>
+                    <div class="friendRequestListItem__registrationDate listItem__informationData">
+                        <%= itemList[i].registrationDate %>
+                    </div>
+                </div>
+            </div>
+            <div class="friendRequestListItem__buttons listItem__buttons">
+                <div class="friendRequestListItem__acceptFriendRequest listItem__button" data-action="admitFriendRequest" data-id=<%= itemList[i].friendId %> >
+                    수락
+                </div>
+                <div class="friendRequestListItem__declineFirendRequest listItem__button" data-action="declineFriendRequest" data-id=<%=itemList[i].friendId %>>
+                    거절
+                </div>
+            </div>
+        </div>
+<% } %>

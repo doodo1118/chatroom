@@ -1,0 +1,280 @@
+*{
+    border: 1px solid black;
+}
+html{
+    height: 100%;
+    background-color: white;
+}
+body{
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    /* background-color: black;
+    color: white; */
+}
+a, a:visited{
+    text-decoration: none;
+}
+.hidden{
+    visibility: hidden;
+}
+.selected{
+    background-color: gray;
+}
+.disable{
+
+}
+
+/* account */
+.account{
+    width: 320px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.account__inputFields{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.account__inputField{
+    width: 200px;
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.account__buttons{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.account__signIn, .account__signUp, .account__toSignUpPage{
+    width: 200px;
+    padding: 1px;
+    display: flex;
+    justify-content: center;
+}
+.account__signIn>div, .account__signUp>div, .account__toSignUpPage div{
+    width: 180px;
+    display: flex;
+    justify-content: center;
+    background-color: steelblue;
+    color: whitesmoke;
+    border: 1px soild skyblue;
+    border-radius: 5px;
+}
+/* ~account */
+
+/* main */
+.main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.main__header{
+    border-bottom: 1px solid lightskyblue;
+    padding: 10px;
+}
+.main__lnb{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.lnb__menu{
+    padding: 5px;
+}
+.lnb__menu:hover{
+    background-color: gray;
+    color: white;
+}
+
+content{
+    padding: 10px;
+}
+.list{
+
+}
+.list>div.listItem{
+    margin: 3px;
+}
+.listItem{
+    padding: 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid steelblue;
+}
+.listItem__informationContainer{
+    height: 35px;
+    display: flex;
+}
+.listItem__informationContainer>div{
+    display: flex;
+    align-items: center;
+    padding: 2px 10px;
+    font-size: small;
+}
+.listItem__informationLabel{
+
+}
+.listItem__informationData{
+
+}
+.listItem__buttons{
+    padding: 3px;
+    display: flex;
+}
+.listItem__button{
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    border: 2px solid steelblue;
+    border-radius: 3px;
+    background-color: skyblue;
+    color: white;
+}
+.listItem__buttons>div{
+    margin: 0px 5px;
+}
+/* ~main */
+
+/* chatRoom___ */
+.chatRoom{
+    display: flex;
+    font-size: small;
+    min-height: 200px;
+}
+.chatRoom__body{
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+.chatRoom__body>div:nth-child(1){
+    flex: 1;
+    border: 1.5px solid steelblue;
+}
+.chatRoom__title{
+    display: flex;
+    padding-left: 5px;
+    border-bottom: 1px solid steelblue;
+}
+.chatRoom__title.directMessage__title{
+    justify-content: center;
+}
+.chatRoom__chatLogsContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.chatRoom__chatLogsContainer>.chatRoom__chatLog{
+    margin: 5px 0px;
+}
+.chatRoom__chatLog{
+    width: 40%;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    /* aligh left */
+    background-color: #f0f0f0;
+    border-color: #f0f0f0;
+    border-radius: 3px;
+    border: none;
+}
+.sender_me{
+    /* align right */
+    align-self: flex-end;
+}
+.sender_bot{
+    width: auto;
+    border-radius: 5px;
+    font-size: small;
+    font-weight: bold;
+    
+    /* remove color */
+    background-color: white;
+}
+.sender_bot>.chatLog__meta{
+    display: none;
+}
+.sender_bot>.chatLog__message{
+    display: flex;
+    justify-content: center;
+}
+.chatLog__meta{
+    display: flex;
+    font-size: small;
+}
+.chatLog__sender{
+    color: palevioletred;
+}
+.chatLog__time{
+    color: lightslategray;
+}
+.chatRoom__inputMessage>input{
+    width: 100%;
+    text-align: center;
+    border: 1.5px solid steelblue;
+    height: 22px;
+}
+
+.chatRoom__header{
+    flex: 1;
+    flex-basis: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px;
+}
+.chatRoom__header>div{
+}
+.chatRoom__board{
+    flex: 1;
+    border: 1.5px solid steelblue;
+}
+.chatRoom__countAttendees{
+    display: flex;
+}
+.chatRoom__exit{
+    height: 22px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: skyblue;
+    border: 1.5px solid steelblue;
+    color: white;
+    font-weight: bold;
+}
+/* ~chatRoom___ */
+
+/* friend */
+.friend__tabs{
+    display: flex;
+    border-bottom: 1px solid steelblue;
+}
+.friend__tab{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    font-size: small;
+}
+.friend__tab>div{
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.friend__tab:hover>div{
+    background-color: gray;
+}
+/* ~friend */

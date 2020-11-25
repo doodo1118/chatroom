@@ -1,0 +1,43 @@
+<!-- itemList = [ {userId, registrationDate, countFriends, requested} ] -->
+<div class="userList list">
+<%
+    for(let i=0; i<itemList.length; i++){ %>
+
+    <div class="userListItem listItem">
+        <div class="userListItem__informationContainer listItem__informationContainer">
+            <div class="userListItem__">
+                <div class="userListItem__idLabel listItem__informationLabel">
+                    ID : 
+                </div>
+                <div class="userListItem__id listItem__informationData">
+                    <%= itemList[i].userId %>
+                </div>
+            </div>
+            <div class="userListItem__ ">
+                <div class="listItem__informationLabel">
+                    가입날짜 : 
+                </div>
+                <div class="userListItem__registrationDate listItem__informationData">
+                    <%= itemList[i].registrationDate %>
+                </div>
+            </div>
+            <div class="userListItem__">
+                <div class="userListItem__ listItem__informationLabel">
+                    친구 수 :
+                </div>
+                <div  class="userListItem__countFriend listItem__informationData">
+                    <%= itemList[i].countFriends %>
+                </div>
+            </div>
+        </div>
+        <div class="userListItem__buttons listItem__buttons">
+            <% if( !(itemList[i].requested) ) { %>
+            <div class="userListItem__friendRequest listItem__button" data-action="sendFriendRequest" data-id=<%=itemList[i].userId %> >
+                친구 요청
+            </div>
+            <% } %>
+        </div>
+    </div>
+
+<% } %>
+</div>

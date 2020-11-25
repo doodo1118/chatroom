@@ -1,0 +1,43 @@
+<!-- { roomNumber, attendees:[], chatLogs:[] } -->
+<div class="chatRoom">
+    <div class="chatRoom__body">
+        <div class="">
+            <div class="chatRoom__title">
+                <div class="chatRoom__roomNumberLabel">
+                    방 번호 : 
+                </div>
+                <div class="chatRoom__roomNumber">
+                </div>
+            </div>
+            <div class="chatRoom__chatLogsContainer">
+            </div>
+        </div>
+        <div class="chatRoom__inputMessage">
+            <input type="text" placeholder="채팅 내용을 입력해주세요." name="message">
+        </div>
+    </div>
+    <div class="chatRoom__header">
+        <div class="chatRoom__informationContainer">
+            <div class="chatRoom__countAttendees">
+                <div class="chatRoom__countAttendeesLabel">
+                    현재인원 : 
+                </div>
+                <div class="chatRoom__countAttendeesData">
+                    <%= attendees.length %>
+                </div>
+            </div>
+            <div class="chatRoom__attendees">
+                <% for(let i=0; i<attendees.length; i++){ %>
+                <div class="chatRoom__attendee">
+                    <%= attendees[i] %>
+                </div>
+                <% } %>
+            </div>
+        </div>
+        <div class="chatRoom__button">
+            <div class="chatRoom__exit">
+                나가기
+            </div>
+        </div>
+    </div>
+</div>

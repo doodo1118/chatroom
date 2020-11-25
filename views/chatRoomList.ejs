@@ -1,0 +1,33 @@
+<!-- itemList = [ {countAttendees, roomNumber} ] -->
+<div class="chatRoomList list">
+<%
+    for(let i=0; i<itemList.length; i++){ %>
+    <div class="chatRoomListItem listItem">
+        <div class="chatRoomListItem__informationContainer listItem__informationContainer">
+            <div class="chatRoomListItem__countAttendees">
+                <div class="chatRoomListItem__countAttendeesLabel listItem__informationLabel">
+                    참여 인원 수 :
+                </div>
+                <div class="chatRoomListItem__countAttendees listItem__informationData">
+                    <%= itemList[i].countAttendees %>
+                </div>
+            </div>
+            <div class="chatRoomListItem__roomNumber">
+                <div class="chatRoomListItem__roomNumberLabel listItem__informationLabel">
+                    방 번호 : 
+                </div>
+                <div class="chatRoomListItem__roomNumber listItem__informationData">
+                    <%= itemList[i].roomNumber %>
+                </div>
+            </div>
+        </div>
+        <div class="chatRoomListItem__buttons listItem__buttons">
+            <!-- data method socket -->
+            <div class="chatRoomListItem__enter listItem__button" data-action="joinChatRoom" data-id=<%=itemList[i].roomNumber%>>
+                입장
+            </div>
+        </div>
+    </div>
+
+<% } %>
+</div>
