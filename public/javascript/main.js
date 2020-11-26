@@ -108,9 +108,11 @@ class LNB{
         document.querySelector(".content__main").innerHTML = "";
         let friendLnb = '<div class="friend__tabs">'+
                             '<div class="friend__tab friend__friendRequest" data-action="getFriendRequestList">' +
+                                '<div class="icon icon_envelope"><i class="fas fa-envelope"></i></div>'+
                                 '<div>수신함</div>'+
                             '</div>'+
-                            '<div class="friend__tab friend__friend" data-action="getFriendList">'+
+                            '<div class="friend__tab friend__friendRequest" data-action="getFriendRequestList">' +
+                                '<div class="icon"><i class="fas fa-user-friends"></i></div>'+
                                 '<div>목록</div>'+
                             '</div>'+
                         '</div>';
@@ -232,18 +234,14 @@ class ItemListContainer {
         document.querySelector(".content__main").innerHTML = `
              <div class="chatRoom">
                 <div class="chatRoom__body">
-                    <div class="">
-                        <div class="chatRoom__title">
-                            <div class="chatRoom__roomNumberLabel">
-                                방 번호 : 
-                            </div>
-                            <div class="chatRoom__roomNumber">
-                            </div>
+                    <div class="chatRoom__title">
+                        <div class="chatRoom__roomNumberLabel">
+                            방 번호 : 
                         </div>
-                        <div class="chatRoom__chatLogsContainer">
-                            <div class="chatRoom__chatLog">
-                            </div>
+                        <div class="chatRoom__roomNumber">
                         </div>
+                    </div>
+                    <div class="chatRoom__chatLogsContainer">
                     </div>
                     <div class="chatRoom__inputMessage">
                         <input type="text" placeholder="채팅 내용을 입력해주세요.">
@@ -259,8 +257,6 @@ class ItemListContainer {
                             </div>
                         </div>
                         <div class="chatRoom__attendees">
-                            <div class="chatRoom__attendee">
-                            </div>
                         </div>
                     </div>
                     <div class="chatRoom__buttons">

@@ -21,7 +21,7 @@ router.get('/user', async (req, res, next)=>{
         async function getUserList(userId){
             try{
                 let subQuery = `SELECT sender, reciever FROM friendRequest WHERE sender = '${userId}'`;
-                let query = `SELECT u.id AS userId, u.created_at AS registrationDate, sq.sender AS requested FROM users AS u LEFT JOIN (${subQuery}) AS sq ON u.id = sq.reciever WHERE u.id!='${userId}'`;
+                let query = `SELECT u.id AS userId, date_format(u.created_at, '%Y-%m-%d') AS registrationDate, sq.sender AS requested FROM users AS u LEFT JOIN (${subQuery}) AS sq ON u.id = sq.reciever WHERE u.id!='${userId}'`;
                 
                 // let query = `SELECT u.id AS userId, u.created_at AS registrationDate, sq.sender AS requested FROM users AS u LEFT JOIN (SELECT sender, reciever FROM friendRequest WHERE sender = 'd') AS sq ON u.id = sq.reciever`;
                 let list = await sequelize.query(query, {type: sequelize.QueryTypes.SELECT});
@@ -41,7 +41,7 @@ router.get('/friend', isLoggedIn, async (req, res, next)=>{
 });
         async function getFriendList(userId){
             try{
-                let query = `SELECT fr.theother AS friendId, u.created_at AS registrationDate FROM friendrelation AS fr JOIN users AS u ON fr.theother = u.id WHERE one='${userId}'`;
+                let query = `SELECT fr.theother AS friendId, date_format(u.created_at, '%Y-%m-%d') AS registrationDate FROM friendrelation AS fr JOIN users AS u ON fr.theother = u.id WHERE one='${userId}'`;
                 const list = await sequelize.query(query, {type: sequelize.QueryTypes.SELECT});
                 
                 return list; 
@@ -52,13 +52,14 @@ router.get('/friend', isLoggedIn, async (req, res, next)=>{
 
 router.get('/friend-request', async(req, res, next)=>{
     const list = await getFriendRequestList(req.user.id); 
+
     res.render('friendRequestList', {
         itemList: list[0], 
     });
 });
         async function getFriendRequestList(userId){
             try{
-                let query = `SELECT fr.sender AS friendId, u.created_at AS registrationDate FROM friendrequest AS fr LEFT JOIN users AS u ON fr.reciever = u.id WHERE fr.reciever='${userId}'`;
+                let query = `SELECT fr.sender AS friendId, date_format(u.created_at, '%Y-%m-%d') AS registrationDate FROM friendrequest AS fr LEFT JOIN users AS u ON fr.reciever = u.id WHERE fr.reciever='${userId}'`;
                 const list = await sequelize.query(query);
 
                 return list; 

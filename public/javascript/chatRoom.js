@@ -127,10 +127,38 @@ class ChatRoomAttendees{
     }
     renderAttendees(users){
         users.forEach(user => {
-            let div = document.createElement('div'); 
-            div.classList.add('.chatRoom__attendee');
-            div.innerHTML = `${user.userId}`
-            this._elem.appendChild(div);
+            let attendee = document.createElement('div');
+            attendee.classList.add('chatRoom__attendee');
+
+            let attendeeId = document.createElement('div');
+            attendeeId.classList.add('attendee__id');
+            attendeeId.innerHTML = user.userId; 
+
+            let attendeeButtons = document.createElement('div');
+            attendeeButtons.classList.add('attendee__buttons');
+
+            // buttons
+            // let attendeeButton = document.createElement('div');
+            // attendee.classList.add('attendee__button');
+            // let friend = document.createElement('div');
+            // attendee.classList.add('attendee__button');
+            // let mute = document.createElement('div');
+            // attendee.classList.add('attendee__button');
+                // <div class="attendee__buttons">
+                //     <div class="attendee__button" data-action="mute">
+                //         <i class="fas fa-comment-slash"></i>
+                //     </div>
+                //     <div class="attendee__button" data-action="">
+                //         <i class="fas fa-assistive-listening-systems"></i>
+                //     </div>
+                //     <div class="attendee__button" data-action="">
+                //         <i class="fas fa-user-plus"></i>
+                //     </div>
+                // </div>
+            attendee.appendChild(attendeeId);
+            attendee.appendChild(attendeeButtons); 
+
+            this._elem.appendChild(attendee);
         });
     }
     onClick(event){
