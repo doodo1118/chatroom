@@ -125,8 +125,7 @@ chat.on('connection',  socket =>{
     let reciever; 
     let sender; 
     socket.on('joinRoom', async ({roomNumber}) =>{
-        const userId = socket.request.session.passport.user;         
-        const user = userJoin(socket.id, userId, roomNumber); 
+        const userId = socket.request.session.passport.user;      
         
         // for saveChat(); 
         reciever = roomNumber; 
@@ -138,7 +137,9 @@ chat.on('connection',  socket =>{
         const roomIdentifier = talkers[0]+talkers[1]; 
 
         socket.join( roomIdentifier ); 
-
+   
+        const user = userJoin(socket.id, userId, roomNumber); 
+        
         io.of('/directMessage').to(user.room).emit('roomInformation', {
             roomNumber: user.room, 
             users: getAttendees(user.room),
