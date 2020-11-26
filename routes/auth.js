@@ -8,10 +8,10 @@ const {isLoggedIn,  isNotLoggedIn} = require('./middlewares');
 const router = express.Router();
 
 router.get('/signin', isNotLoggedIn, (req, res, next)=>{
-    res.render('signin');
+    res.render('signIn');
 } );
 router.get('/signup', isNotLoggedIn, (req, res, next)=>{
-    res.render('signup');
+    res.render('signUp');
 });
 
 
