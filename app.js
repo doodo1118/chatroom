@@ -159,6 +159,7 @@ chat.on('connection',  socket =>{
         io.of('/directMessage').to(user.room).emit('message', formatMessage(userId, message) );
         
         // saveChat
+        let time = moment().format('h:mm a');
         await saveChat(sender, reciever, message, time);
     })
 });
