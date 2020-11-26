@@ -1,5 +1,4 @@
-
-const baseUrl = 'http://localhost:80';
+const baseUrl = 'http://3.34.255.237/';
 
 document.addEventListener("DOMContentLoaded", ()=>{
 
