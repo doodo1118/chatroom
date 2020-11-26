@@ -14,7 +14,7 @@ db.Sequelize = Sequelize;
 // 
 db.User = require('./user')(sequelize, Sequelize);
 db.Directmessage = require('./directmessage')(sequelize, Sequelize);
-
+db.Chatroom = require('./chatroom')(sequelize, Sequelize); 
 // FriendRelation
 db.User.belongsToMany(db.User, {
   foreignKey: 'one', 

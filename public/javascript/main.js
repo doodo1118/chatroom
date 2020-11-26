@@ -2,7 +2,7 @@
 // 4. 클릭전에 content 미리 로드하기
 
 
-const baseUrl = 'http://localhost:8001';
+const baseUrl = 'http://localhost:80';
 
 document.addEventListener("DOMContentLoaded", ()=>{
 
