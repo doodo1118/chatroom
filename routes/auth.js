@@ -13,13 +13,12 @@ router.get('/signin', isNotLoggedIn, (req, res, next)=>{
 router.get('/signup', isNotLoggedIn, (req, res, next)=>{
     res.render('signUp');
 });
-
-
 router.get('/logout', (req, res, next)=>{
     req.logout();
     req.session.destroy();
     res.redirect('/');
 });
+
 router.post('/signin', isNotLoggedIn, (req, res, next)=>{
     /*
         sign in

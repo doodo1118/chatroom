@@ -1,4 +1,4 @@
-const baseUrl = 'http://3.34.255.237/';
+const baseUrl = 'http://3.34.255.237';
 
 document.addEventListener("DOMContentLoaded", ()=>{
 
@@ -12,7 +12,6 @@ xhr.onreadystatechange  = ()=>{
         // state indicator animation 
     }else if(xhr.readyState === xhr.DONE ){
         let response = xhr.responseText;
-        console.log(response);
         if(response === 'success'){
             alert('가입이 완료되었습니다. 로그인 해 주세요');
             window.location.href = '/auth/signin';

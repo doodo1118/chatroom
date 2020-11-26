@@ -2,7 +2,7 @@
 // 4. 클릭전에 content 미리 로드하기
 
 
-const baseUrl = 'http://3.34.255.237/';
+const baseUrl = 'http://3.34.255.237';
 
 document.addEventListener("DOMContentLoaded", ()=>{
 
