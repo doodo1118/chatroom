@@ -47,6 +47,10 @@ class ChatLogsContainer{
     }
     displayHistory(chatLogsHistory){
         console.log(chatLogsHistory); 
+        chatLogsHistory.forEach((chatLog)=>{
+            let {sender, message, time} = chatLog; 
+            this.displayMessage( sender, message, time); 
+        })
     }
     displayMessage({sender, time, message}){
         const chatLogDiv = document.createElement('div'); 

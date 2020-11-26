@@ -115,6 +115,8 @@ io.on('connection', socket =>{
 
 })
 
+const moment = require('moment');
+
 // DirectMessage Socket
 const chat = io.of('/directMessage');
 chat.use((socket, next) => {
@@ -141,8 +143,7 @@ chat.on('connection',  socket =>{
         const user = userJoin(socket.id, userId, roomIdentifier); 
 
         io.of('/directMessage').to(user.room).emit('roomInformation', {
-            roomNumber: user.room, 
-            users: getAttendees(user.room),
+            roomNumber: roomNumber, 
         })
 
         // loadChat
@@ -158,12 +159,12 @@ chat.on('connection',  socket =>{
         io.of('/directMessage').to(user.room).emit('message', formatMessage(userId, message) );
         
         // saveChat
-        await saveChat(sender, reciever, message);
+        await saveChat(sender, reciever, message, time);
     })
 });
 async function loadChat(myId, friendId){
     try{
-        let query = `SELECT sender, reciever FROM directmessages WHERE (sender='${myId}' AND reciever='${friendId}') OR (sender='${friendId}' AND reciever='${myId}') ORDER BY createdAt ASC`;
+        let query = `SELECT sender, message, time FROM directmessages WHERE (sender='${myId}' AND reciever='${friendId}') OR (sender='${friendId}' AND reciever='${myId}') ORDER BY createdAt ASC LIMIT 50`;
         
         // let query = `SELECT u.id AS userId, u.created_at AS registrationDate, sq.sender AS requested FROM users AS u LEFT JOIN (SELECT sender, reciever FROM friendRequest WHERE sender = 'd') AS sq ON u.id = sq.reciever`;
         let list = await sequel.query(query, {type: sequelize.QueryTypes.SELECT});
@@ -172,9 +173,9 @@ async function loadChat(myId, friendId){
 
     }
 }
-async function saveChat(sender, reciever, message){
+async function saveChat(sender, reciever, message, time){
     try{
-        let query = `INSERT INTO directmessages(sender, reciever, message, creaetedAt, updatedAt) VALUES('${sender}', '${reciever}', '${message}', NOW(), NOW())`;
+        let query = `INSERT INTO directmessages(sender, reciever, message, time, creaetedAt, updatedAt) VALUES('${sender}', '${reciever}', '${message}', '${time}', NOW(), NOW())`;
     
         await sequel.query(query);
         return;
