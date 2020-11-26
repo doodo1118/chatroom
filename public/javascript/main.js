@@ -283,8 +283,6 @@ class ItemListContainer {
                         </div>
                     </div>
                     <div class="chatRoom__chatLogsContainer">
-                        <div class="chatRoom__chatLog">
-                        </div>
                     </div>
                     <div class="chatRoom__inputMessage">
                         <input type="text" placeholder="채팅 내용을 입력해주세요.">

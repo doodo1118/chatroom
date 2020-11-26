@@ -132,7 +132,12 @@ chat.on('connection',  socket =>{
         reciever = roomNumber; 
         sender = userId; 
 
-        socket.join(roomNumber); 
+        // roomIdentifier
+        let talkers = [reciever, sender];
+        talkers.sort();
+        const roomIdentifier = talkers[0]+talkers[1]; 
+
+        socket.join( roomIdentifier ); 
 
         io.of('/directMessage').to(user.room).emit('roomInformation', {
             roomNumber: user.room, 
