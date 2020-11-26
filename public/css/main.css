@@ -211,8 +211,11 @@ content{
 }
 .chatRoom__chatLogsContainerWrap{
     flex: 1;
+    display: flex;
 }
 .chatRoom__chatLogsContainer{
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

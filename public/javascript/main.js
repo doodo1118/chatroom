@@ -241,7 +241,7 @@ class ItemListContainer {
                         <div class="chatRoom__roomNumber">
                         </div>
                     </div>
-                    <div class="chatRoom__chatLogsContainerWrap>
+                    <div class="chatRoom__chatLogsContainerWrap">
                         <div class="chatRoom__chatLogsContainer">
                         </div>
                     </div>
