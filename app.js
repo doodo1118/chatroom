@@ -138,8 +138,8 @@ chat.on('connection',  socket =>{
 
         socket.join( roomIdentifier ); 
    
-        const user = userJoin(socket.id, userId, roomNumber); 
-        
+        const user = userJoin(socket.id, userId, roomIdentifier); 
+
         io.of('/directMessage').to(user.room).emit('roomInformation', {
             roomNumber: user.room, 
             users: getAttendees(user.room),
