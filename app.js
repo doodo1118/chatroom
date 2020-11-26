@@ -5,7 +5,7 @@ const path = require('path');
 const session = require('express-session');
 const passport = require('passport');
 
-const { sequelize } = require('./models');
+const { sequelize, Directmessage } = require('./models');
 const passportConfig = require('./passport');
 
 const setRoutes = require('./routes');
@@ -116,6 +116,7 @@ io.on('connection', socket =>{
 })
 
 const moment = require('moment');
+const directmessage = require('./models/directmessage');
 
 // DirectMessage Socket
 const chat = io.of('/directMessage');
@@ -177,8 +178,13 @@ async function loadChat(myId, friendId){
 async function saveChat(sender, reciever, message, time){
     try{
         let query = `INSERT INTO directmessages(sender, reciever, message, time, creaetedAt, updatedAt) VALUES('${sender}', '${reciever}', '${message}', '${time}', NOW(), NOW());`;
-    
-        await sequel.query(query);
+        await Directmessage.create({
+            sender, 
+            reciever, 
+            message,
+            time,
+        });
+        // await sequel.query(query);
         return;
     }catch(error){
 

@@ -241,7 +241,9 @@ class ItemListContainer {
                         <div class="chatRoom__roomNumber">
                         </div>
                     </div>
-                    <div class="chatRoom__chatLogsContainer">
+                    <div class="chatRoom__chatLogsContainerWrap>
+                        <div class="chatRoom__chatLogsContainer">
+                        </div>
                     </div>
                     <div class="chatRoom__inputMessage">
                         <input type="text" placeholder="채팅 내용을 입력해주세요.">
@@ -282,7 +284,9 @@ class ItemListContainer {
                             ${friendId}
                         </div>
                     </div>
-                    <div class="chatRoom__chatLogsContainer">
+                    <div class="chatRoom__chatLogsContainerWrap">
+                        <div class="chatRoom__chatLogsContainer">
+                        </div>
                     </div>
                     <div class="chatRoom__inputMessage">
                         <input type="text" placeholder="채팅 내용을 입력해주세요.">

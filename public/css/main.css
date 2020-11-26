@@ -209,26 +209,14 @@ content{
 .chatRoom__title.directMessage__title{
     justify-content: center;
 }
-.chatRoom__chatLogsContainer{
+.chatRoom__chatLogsContainerWrap{
     flex: 1;
+}
+.chatRoom__chatLogsContainer{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     overflow-y: scroll;
-}
-.scroll-test::-webkit-scrollbar {
-    width: 6px;
-}
-.scroll-test::-webkit-scrollbar-track {
-    background-color: transparent;
-}
-.scroll-test::-webkit-scrollbar-thumb {
-    border-radius: 3px;
-    background-color: gray;
-}
-.scroll-test::-webkit-scrollbar-button {
-    width: 0;
-    height: 0;
 }
 .chatRoom__chatLogsContainer>.chatRoom__chatLog{
     margin: 5px 0px;
