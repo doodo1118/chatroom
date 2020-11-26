@@ -11,10 +11,7 @@ const FollowRelation = sequelize.models.FollowRelation;
 const router = express.Router();
 
 router.get('/user', async (req, res, next)=>{
-    const list = []
-    const users = await getUserList(req.user.id); 
-    if(users)
-        list = users;
+    const list = await getUserList(req.user.id); 
     
     res.render('userList', {
         // [ {userId, registrationDate, countFriends, requested} ]
