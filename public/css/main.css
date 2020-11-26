@@ -211,7 +211,7 @@ content{
 }
 .chatRoom__chatLogsContainerWrap{
     flex: 1;
-    display: flex;
+    overflow-y: scroll;
 }
 .chatRoom__chatLogsContainer{
     width: 100%;
@@ -219,7 +219,6 @@ content{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    overflow-y: scroll;
 }
 .chatRoom__chatLogsContainer>.chatRoom__chatLog{
     margin: 5px 0px;
