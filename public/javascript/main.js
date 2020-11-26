@@ -277,15 +277,13 @@ class ItemListContainer {
         document.querySelector(".content__main").innerHTML = `
             <div class="chatRoom">
                 <div class="chatRoom__body">
-                    <div class="">
-                        <div class="chatRoom__title directMessage__title">
-                            <div class="chatRoom__roomNumber">
-                                ${friendId}
-                            </div>
+                    <div class="chatRoom__title directMessage__title">
+                        <div class="chatRoom__roomNumber">
+                            ${friendId}
                         </div>
-                        <div class="chatRoom__chatLogsContainer">
-                            <div class="chatRoom__chatLog">
-                            </div>
+                    </div>
+                    <div class="chatRoom__chatLogsContainer">
+                        <div class="chatRoom__chatLog">
                         </div>
                     </div>
                     <div class="chatRoom__inputMessage">
