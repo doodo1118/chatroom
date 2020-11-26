@@ -111,7 +111,7 @@ class LNB{
                                 '<div class="icon icon_envelope"><i class="fas fa-envelope"></i></div>'+
                                 '<div>수신함</div>'+
                             '</div>'+
-                            '<div class="friend__tab friend__friendRequest" data-action="getFriendRequestList">' +
+                            '<div class="friend__tab friend__friendRequest" data-action="getFriendList">' +
                                 '<div class="icon"><i class="fas fa-user-friends"></i></div>'+
                                 '<div>목록</div>'+
                             '</div>'+
