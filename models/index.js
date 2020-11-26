@@ -19,34 +19,34 @@ db.Chatroom = require('./chatroom')(sequelize, Sequelize);
 db.User.belongsToMany(db.User, {
   foreignKey: 'one', 
   as: 'theother',
-  through: 'FriendRelation'
+  through: 'friendrelation'
 });
 db.User.belongsToMany(db.User, {
   foreignKey: 'theother',
   as: 'one', 
-  through: 'FriendRelation'
+  through: 'friendrelation'
 });
 // FollowRelation
 db.User.belongsToMany(db.User, {
   foreignKey: 'following', 
   as: 'follower',
-  through: 'FollowRelation'
+  through: 'followrelation'
 });
 db.User.belongsToMany(db.User, {
   foreignKey: 'follower',
   as: 'following', 
-  through: 'FollowRelation'
+  through: 'followrelation'
 });
 // FriendRequest
 db.User.belongsToMany(db.User, {
   foreignKey: 'reciever', 
   as: 'sender',
-  through: 'FriendRequest'
+  through: 'friendrequest'
 });
 db.User.belongsToMany(db.User, {
   foreignKey: 'sender',
   as: 'reciever', 
-  through: 'FriendRequest'
+  through: 'friendrequest'
 });
 
 // ~Relation

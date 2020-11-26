@@ -11,7 +11,10 @@ const FollowRelation = sequelize.models.FollowRelation;
 const router = express.Router();
 
 router.get('/user', async (req, res, next)=>{
-    const list = await getUserList(req.user.id); 
+    const list = []
+    const users = await getUserList(req.user.id); 
+    if(users)
+        list = users;
     
     res.render('userList', {
         // [ {userId, registrationDate, countFriends, requested} ]
@@ -20,7 +23,7 @@ router.get('/user', async (req, res, next)=>{
 });
         async function getUserList(userId){
             try{
-                let subQuery = `SELECT sender, reciever FROM friendRequest WHERE sender = '${userId}'`;
+                let subQuery = `SELECT sender, reciever FROM friendrequest WHERE sender = '${userId}'`;
                 let query = `SELECT u.id AS userId, date_format(u.created_at, '%Y-%m-%d') AS registrationDate, sq.sender AS requested FROM users AS u LEFT JOIN (${subQuery}) AS sq ON u.id = sq.reciever WHERE u.id!='${userId}'`;
                 
                 // let query = `SELECT u.id AS userId, u.created_at AS registrationDate, sq.sender AS requested FROM users AS u LEFT JOIN (SELECT sender, reciever FROM friendRequest WHERE sender = 'd') AS sq ON u.id = sq.reciever`;
@@ -123,9 +126,9 @@ router.delete('/friend/:friendId', isLoggedIn, async(req, res, next)=>{
 })
         async function deleteFriend(req, res, next){
             try{
-                let query = `DELETE FROM friendRelation WHERE one='${req.user.id}' AND theother='${req.params.friendId}'`;
+                let query = `DELETE FROM friendrelation WHERE one='${req.user.id}' AND theother='${req.params.friendId}'`;
                 await sequelize.query(query);
-                query = `DELETE FROM friendRelation WHERE theother='${req.user.id}' AND one='${req.params.friendId}'`;
+                query = `DELETE FROM friendrelation WHERE theother='${req.user.id}' AND one='${req.params.friendId}'`;
                 await sequelize.query(query);
 
                 return; 
