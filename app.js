@@ -32,7 +32,7 @@ const sessionMiddleware = session({
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.set('port', process.env.PORT||8001);
+app.set('port', process.env.PORT||80);
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
@@ -138,7 +138,7 @@ chat.on('connection',  socket =>{
             roomNumber: user.room, 
             users: getAttendees(user.room),
         })
-        
+
         // loadChat
         let chatLogsHistory = await loadChat(sender, reciever);
         io.of('/directMessage').to(user.room).emit('chatLogsHistory', {
