@@ -45,11 +45,10 @@ class ChatLogsContainer{
     constructor(elem){
         this._elem = elem;
     }
-    displayHistory(chatLogsHistory){
+    displayHistory({chatLogsHistory}){
         console.log(chatLogsHistory); 
         chatLogsHistory.forEach((chatLog)=>{
-            let {sender, message, time} = chatLog; 
-            this.displayMessage( sender, message, time); 
+            this.displayMessage( chatLog ); 
         })
     }
     displayMessage({sender, time, message}){
