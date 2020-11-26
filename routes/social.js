@@ -4,9 +4,9 @@ const {isLoggedIn,  isNotLoggedIn } = require('./middlewares');
 
 // database models
 const {User, sequelize} = require('../models');
-const FriendRequest = sequelize.models.FriendRequest;
-const FriendRelation = sequelize.models.FriendRelation;
-const FollowRelation = sequelize.models.FollowRelation;
+const FriendRequest = sequelize.models.friendrequest;
+const FriendRelation = sequelize.models.friendrelation;
+const FollowRelation = sequelize.models.followrelation;
 
 const router = express.Router();
 
