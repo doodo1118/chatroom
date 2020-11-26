@@ -163,7 +163,7 @@ chat.on('connection',  socket =>{
 });
 async function loadChat(myId, friendId){
     try{
-        let query = `SELECT sender, reciever, time FROM directmessages WHERE (sender='${myId}' AND reciever='${friendId}') OR (sender='${friendId}' AND reciever='${myId}') ORDER BY createdAt ASC`;
+        let query = `SELECT sender, reciever FROM directmessages WHERE (sender='${myId}' AND reciever='${friendId}') OR (sender='${friendId}' AND reciever='${myId}') ORDER BY createdAt ASC`;
         
         // let query = `SELECT u.id AS userId, u.created_at AS registrationDate, sq.sender AS requested FROM users AS u LEFT JOIN (SELECT sender, reciever FROM friendRequest WHERE sender = 'd') AS sq ON u.id = sq.reciever`;
         let list = await sequel.query(query, {type: sequelize.QueryTypes.SELECT});
@@ -174,7 +174,7 @@ async function loadChat(myId, friendId){
 }
 async function saveChat(sender, reciever, message){
     try{
-        let query = `INSERT INTO directmessages VALUES('${sender}', '${reciever}', '${message}')`;
+        let query = `INSERT INTO directmessages(sender, reciever, message, creaetedAt, updatedAt) VALUES('${sender}', '${reciever}', '${message}', NOW(), NOW())`;
     
         await sequel.query(query);
         return;
